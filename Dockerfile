@@ -4,4 +4,4 @@ COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["version"]
+CMD ["projects list"]
