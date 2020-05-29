@@ -1,7 +1,6 @@
 #!/bin/sh
 
 set -e
-PROJECT_ID="$1"
 if [ ! -d "$HOME/.config/gcloud" ]; then
    if [ -z "${APPLICATION_CREDENTIALS-}" ]; then
       echo "APPLICATION_CREDENTIALS not found. Exiting...."
