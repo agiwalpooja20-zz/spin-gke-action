@@ -22,7 +22,7 @@ fi
 echo ::add-path::/google-cloud-sdk/bin/gcloud
 echo ::add-path::/google-cloud-sdk/bin/gsutil
 
-gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME" --service-account /tmp/account.json --scopes=https://www.googleapis.com/auth/cloud-platform
+gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME" --scopes=https://www.googleapis.com/auth/cloud-platform
 
 gcloud container clusters list
 
