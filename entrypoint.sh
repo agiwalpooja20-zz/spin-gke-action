@@ -77,3 +77,7 @@ echo ::add-path::/google-cloud-sdk/bin/gsutil
 gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME"
 
 gcloud container clusters list
+
+gcloud container clusters get-credentials cluster-name
+
+kubectl config current-context
