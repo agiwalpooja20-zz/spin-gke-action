@@ -30,6 +30,6 @@ gcloud config set account fission-accel@omni-163105.iam.gserviceaccount.com
 
 export GOOGLE_APPLICATION_CREDENTIALS="/tmp/account.json"
 
-gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME"
+gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME" --project "$PROJECT_ID"
 
 kubectl get secrets
