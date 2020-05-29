@@ -22,7 +22,6 @@ fi
 echo ::add-path::/google-cloud-sdk/bin/gcloud
 echo ::add-path::/google-cloud-sdk/bin/gsutil
 
-# Update kubeConfig.
 gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME"
 
-sh -c "kubectl $*"
+gcloud container clusters list
