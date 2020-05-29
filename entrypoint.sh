@@ -78,4 +78,4 @@ gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME"
 
 gcloud container clusters list
 
-gcloud container clusters get-credentials cluster-name
+gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME"
