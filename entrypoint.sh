@@ -34,6 +34,8 @@ gcloud config set project "$PROJECT_ID"
 
 gcloud config set compute/zone "$ZONE_NAME"
 
+sleep 300
+
 gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME" --project "$PROJECT_ID"
 
 gcloud config list
