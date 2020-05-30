@@ -24,7 +24,7 @@ echo ::add-path::/google-cloud-sdk/bin/gsutil
 
 export GOOGLE_APPLICATION_CREDENTIALS="/tmp/account.json"
 
-gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME" --scopes=https://www.googleapis.com/auth/cloud-platform
+gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME" --scopes=https://www.googleapis.com/auth/cloud-platform,userinfo-email
 
 gcloud container clusters list
 
@@ -37,5 +37,3 @@ gcloud config set compute/zone "$ZONE_NAME"
 gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME" --project "$PROJECT_ID"
 
 gcloud config list
-
-kubectl get secrets
