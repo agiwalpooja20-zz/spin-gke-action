@@ -29,3 +29,5 @@ gcloud auth activate-service-account --key-file=/tmp/account.json --project "$PR
 
 #Update Kubeconfig
 gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME" --project "$PROJECT_ID"
+
+kubectl config current-context
