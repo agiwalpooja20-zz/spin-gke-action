@@ -34,4 +34,6 @@ rm ~/.kube/config
 
 gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME" --project "$PROJECT_ID"
 
+gcloud config config-helper  
+
 kubectl get secrets
