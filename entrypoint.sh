@@ -25,7 +25,7 @@ echo ::add-path::/google-cloud-sdk/bin/gsutil
 #Create cluster
 gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME" 
 
-sleep 300
+gcloud auth activate-service-account --key-file=/tmp/account.json --project "$PROJECT_ID"
 
 #Update Kubeconfig
 gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME" --project "$PROJECT_ID"
