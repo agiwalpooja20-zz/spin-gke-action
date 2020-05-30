@@ -16,6 +16,10 @@ inputs:
   ZONE_NAME:
     description: 'Zone Name'
     required: true
+  GITHUB_WORKSPACE:
+    description: 'Export credentials if requested - these credentials must be exported in the shared workspace directory, since the filesystem must be shared among all steps.'
+    required: false
+    default: env.GITHUB_WORKSPACE
 runs:
   using: 'docker'
   image: 'Dockerfile'

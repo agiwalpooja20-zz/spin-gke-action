@@ -15,7 +15,7 @@ if [ ! -d "$HOME/.config/gcloud" ]; then
 
    echo "$APPLICATION_CREDENTIALS" | base64 -d > /tmp/account.json
 
-   gcloud auth activate-service-account --key-file=/tmp/account.json --project "$PROJECT_ID"
+   gcloud auth activate-service-account --key-file="$GITHUB_WORKSPACE"/tmp/account.json --project "$PROJECT_ID"
 
 fi
 
@@ -25,11 +25,15 @@ echo ::add-path::/google-cloud-sdk/bin/gsutil
 #Create cluster
 gcloud container clusters create "$CLUSTER_NAME" --zone "$ZONE_NAME" 
 
-gcloud auth activate-service-account --key-file=/tmp/account.json --project "$PROJECT_ID"
-
 #Update Kubeconfig
 gcloud container clusters get-credentials "$CLUSTER_NAME" --zone "$ZONE_NAME" --project "$PROJECT_ID"
 
 kubectl config current-context
+
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+
+cat $HOME/.kube/config
+
+export GOOGLE_APPLICATION_CREDENTIALS="$GITHUB_WORKSPACE/tmp/account.json"
 
 sh -c "kubectl $*"
