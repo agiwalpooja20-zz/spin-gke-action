@@ -13,7 +13,7 @@ if [ ! -d "$HOME/.config/gcloud" ]; then
       exit 1
    fi
 
-   echo "$APPLICATION_CREDENTIALS" | base64 -d > /tmp/account.json
+   echo "$APPLICATION_CREDENTIALS" | base64 -d > "$GITHUB_WORKSPACE"/tmp/account.json
 
    gcloud auth activate-service-account --key-file="$GITHUB_WORKSPACE"/tmp/account.json --project "$PROJECT_ID"
 
