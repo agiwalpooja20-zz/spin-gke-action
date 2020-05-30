@@ -13,9 +13,9 @@ if [ ! -d "$HOME/.config/gcloud" ]; then
       exit 1
    fi
 
-   echo "$APPLICATION_CREDENTIALS" | base64 -d > "$GITHUB_WORKSPACE"/tmp/account.json
+   echo "$APPLICATION_CREDENTIALS" | base64 -d > "$GITHUB_WORKSPACE"/account.json
 
-   gcloud auth activate-service-account --key-file="$GITHUB_WORKSPACE"/tmp/account.json --project "$PROJECT_ID"
+   gcloud auth activate-service-account --key-file="$GITHUB_WORKSPACE"/account.json --project "$PROJECT_ID"
 
 fi
 
@@ -34,6 +34,6 @@ export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
 
 cat $HOME/.kube/config
 
-export GOOGLE_APPLICATION_CREDENTIALS="$GITHUB_WORKSPACE/tmp/account.json"
+export GOOGLE_APPLICATION_CREDENTIALS="$GITHUB_WORKSPACE/account.json"
 
 sh -c "kubectl $*"
